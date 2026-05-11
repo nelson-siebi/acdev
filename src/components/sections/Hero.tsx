@@ -6,17 +6,17 @@ import Link from "next/link"
 
 const slides = [
   {
-    image: "/photos/hero-1.jpg",
+    image: "/kevin-bonilla-GE5T26wd3QM-unsplash.jpg",
     title: "Ensemble pour les droits des femmes",
     subtitle: "8 400+ enfants sensibilisés aux violences sexuelles"
   },
   {
-    image: "/photos/hero-2.jpg",
+    image: "/maria-lupan-HI9Gw0On60Q-unsplash.jpg",
     title: "Formation et autonomisation",
     subtitle: "3 000+ élèves formés sur l'hygiène menstruelle"
   },
   {
-    image: "/photos/hero-3.jpg",
+    image: "/microsoft-copilot-pqMPnPo4_ZA-unsplash.jpg",
     title: "Accompagnement sur le terrain",
     subtitle: "100+ mères accompagnées dans 3 régions du Cameroun"
   }
@@ -46,24 +46,16 @@ export function Hero() {
               index === current ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
             }`}
           >
-            {/* Image placeholder avec couleurs du site */}
-            <div 
-              className="w-full h-full flex items-center justify-center"
-              style={{
-                background: index === 0 
-                  ? 'linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%)'
-                  : index === 1
-                  ? 'linear-gradient(135deg, #DC2626 0%, #B91C1C 100%)'
-                  : 'linear-gradient(135deg, #16A34A 0%, #15803D 100%)'
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+              onError={(e) => {
+                const target = e.currentTarget
+                target.style.display = "none"
               }}
-            >
-              <div className="text-center text-white p-8">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-white/20 flex items-center justify-center">
-                  <span className="text-4xl">📷</span>
-                </div>
-                <p className="text-lg text-white/70">Image {index + 1}</p>
-              </div>
-            </div>
+            />
           </div>
         ))}
 
