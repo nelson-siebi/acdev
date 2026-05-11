@@ -1,26 +1,120 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Couleurs ACDEV - Bleu, Rouge, Vert, Noir et Blanc */
+  --background: #FFFFFF;
+  --foreground: #000000;
+  
+  /* Primary - Bleu */
+  --primary: #1E40AF;
+  --primary-foreground: #FFFFFF;
+  --primary-dark: #1E3A8A;
+  --primary-light: #3B82F6;
+  
+  /* Secondary - Rouge */
+  --secondary: #DC2626;
+  --secondary-foreground: #FFFFFF;
+  --secondary-dark: #B91C1C;
+  
+  /* Accent - Vert */
+  --accent: #16A34A;
+  --accent-foreground: #FFFFFF;
+  --accent-dark: #15803D;
+  
+  /* Neutres */
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
+  --border: #E5E7EB;
+  --card: #FFFFFF;
+  --card-foreground: #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Georgia, serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Classes utilitaires ACDEV - Sans gradients pour look plus authentique */
+.bg-primary-solid {
+  background-color: var(--primary);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.section-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-padding {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.container-acdev {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-acdev {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-acdev {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-acdev {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
