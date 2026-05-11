@@ -72,10 +72,10 @@ function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
 
 export function ImpactNumbers() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-20 bg-white border-t border-gray-200">
       <div className="container-acdev">
-        <div className="text-center mb-16">
-          <span className="text-[#DC2626] font-semibold text-sm uppercase tracking-wider">
+        <div className="text-center mb-14">
+          <span className="text-[#1E40AF] font-semibold text-sm uppercase tracking-wider">
             Nos réalisations
           </span>
           <h2 
@@ -89,34 +89,28 @@ export function ImpactNumbers() {
           </p>
         </div>
 
-        {/* Cards avec animation */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 border-y border-gray-200">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="relative group p-8 bg-white border-2 border-gray-100 hover:border-transparent transition-all duration-300 hover:shadow-xl"
-              style={{ 
-                borderTopColor: stat.color,
-                borderTopWidth: '4px'
-              }}
+              className={`p-8 lg:p-10 text-left bg-white ${
+                index % 2 === 0 ? "border-r border-gray-200" : ""
+              } ${index < 2 ? "border-b border-gray-200" : ""} lg:border-b-0 ${
+                index < 3 ? "lg:border-r lg:border-gray-200" : ""
+              }`}
             >
-              <div 
-                className="mb-4"
-                style={{ color: stat.color }}
-              >
-                <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+              <div className="flex items-baseline gap-3 mb-3">
+                <div style={{ color: stat.color }}>
+                  <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+                </div>
+                <span className="inline-block w-6 h-0.5" style={{ backgroundColor: stat.color }} />
               </div>
-              <h3 className="text-lg font-bold text-black mb-2">
+              <h3 className="text-base lg:text-lg font-semibold text-black mb-1">
                 {stat.label}
               </h3>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-600">
                 {stat.description}
               </p>
-              {/* Hover effect background */}
-              <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity -z-10"
-                style={{ backgroundColor: stat.color }}
-              />
             </div>
           ))}
         </div>

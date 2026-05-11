@@ -35,11 +35,11 @@ const timeline = [
 
 export function Histoire() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-white border-t border-gray-200">
       <div className="container-acdev">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-[#DC2626] font-semibold text-sm uppercase tracking-wider">
+          <span className="text-[#1E40AF] font-semibold text-sm uppercase tracking-wider">
             Notre parcours
           </span>
           <h2 
@@ -56,14 +56,14 @@ export function Histoire() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Timeline */}
           <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#DC2626] via-[#1E40AF] to-[#16A34A]" />
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200" />
             
             <div className="space-y-8">
               {timeline.map((item, index) => (
-                <div key={index} className="relative flex gap-6 group">
+                <div key={index} className="relative flex gap-6">
                   {/* Icon */}
                   <div 
-                    className="relative z-10 w-12 h-12 flex items-center justify-center text-white shrink-0 transition-transform group-hover:scale-110"
+                    className="relative z-10 w-12 h-12 flex items-center justify-center text-white shrink-0"
                     style={{ backgroundColor: item.color }}
                   >
                     <item.icon className="h-5 w-5" />
@@ -90,11 +90,11 @@ export function Histoire() {
           </div>
 
           {/* Quote card */}
-          <div className="lg:sticky lg:top-24">
-            <div className="bg-black text-white p-8 lg:p-12 relative">
+          <div>
+            <div className="bg-white p-8 lg:p-12 border border-gray-200">
               <Quote className="h-10 w-10 text-[#DC2626] mb-6" />
               <blockquote 
-                className="text-2xl lg:text-3xl font-bold leading-tight mb-8"
+                className="text-2xl lg:text-3xl font-bold leading-tight mb-8 text-black"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 "Protéger les groupes vulnérables, c'est assurer notre avenir commun"
@@ -104,8 +104,8 @@ export function Histoire() {
                   ML
                 </div>
                 <div>
-                  <p className="font-semibold">Mme Marie Louisette LOBE</p>
-                  <p className="text-sm text-gray-400">Fondatrice & Présidente</p>
+                  <p className="font-semibold text-black">Mme Marie Louisette LOBE</p>
+                  <p className="text-sm text-gray-600">Fondatrice & Présidente</p>
                 </div>
               </div>
             </div>
@@ -119,7 +119,7 @@ export function Histoire() {
               ].map((valeur) => (
                 <div 
                   key={valeur.label}
-                  className="text-center p-4 bg-white border-2 border-gray-100 hover:border-transparent transition-colors"
+                  className="text-center p-4 bg-white border border-gray-200"
                   style={{ borderBottomColor: valeur.color, borderBottomWidth: '3px' }}
                 >
                   <span className="font-bold text-black">{valeur.label}</span>
