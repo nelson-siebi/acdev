@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { useMemo, useState } from "react"
 
 const modesDons = [
   {
@@ -25,18 +26,26 @@ const modesDons = [
 ]
 
 export default function NousSoutenirPage() {
+  const [selected, setSelected] = useState<{ mode: string; amount: string } | null>(null)
+
+  const paymentText = useMemo(() => {
+    if (!selected) return "Paiement par Mobile Money (OM, MTN MoMo) ou virement bancaire"
+    if (selected.amount === "Adhésion") return "Adhésion : nous vous contactons après votre message ou paiement"
+    return `Montant sélectionné : ${selected.amount}`
+  }, [selected])
+
   return (
-    <div className="min-h-screen bg-[#FDFCFA]">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-[#F5F3EF] border-b border-[#E5E1D8] py-16 lg:py-20">
+      <section className="bg-white border-b border-gray-200 py-16 lg:py-20">
         <div className="container-acdev">
           <h1 
-            className="text-4xl lg:text-5xl font-bold text-[#2C3E50] mb-6"
+            className="text-4xl lg:text-5xl font-bold text-black mb-6"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             Soutenez notre action
           </h1>
-          <p className="text-xl text-[#5D6D7E] max-w-3xl">
+          <p className="text-xl text-gray-700 max-w-3xl">
             Votre contribution nous permet de continuer à protéger les femmes et les enfants 
             vulnérables au Cameroun.
           </p>
@@ -46,30 +55,31 @@ export default function NousSoutenirPage() {
       {/* Modes de don */}
       <section className="py-16 lg:py-24">
         <div className="container-acdev">
-          <div className="grid lg:grid-cols-3 gap-px bg-[#E5E1D8] border border-[#E5E1D8]">
+          <div className="grid lg:grid-cols-3 gap-px bg-gray-200 border border-gray-200">
             {modesDons.map((mode, idx) => (
               <div 
                 key={idx} 
-                className="bg-[#FFFCF8] p-8 flex flex-col"
+                className="bg-white p-8 flex flex-col"
               >
                 <h2 
-                  className="text-2xl font-bold text-[#2C3E50] mb-4"
+                  className="text-2xl font-bold text-black mb-4"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
                   {mode.titre}
                 </h2>
                 
-                <p className="text-[#5D6D7E] mb-6 flex-1">
+                <p className="text-gray-700 mb-6 flex-1">
                   {mode.description}
                 </p>
                 
                 <div className="space-y-2 mb-6">
-                  <p className="text-sm text-[#8B7355]">Montants suggérés :</p>
+                  <p className="text-sm text-gray-600">Montants suggérés :</p>
                   <div className="flex flex-wrap gap-2">
                     {mode.montants.map((m) => (
                       <button
                         key={m}
-                        className="px-4 py-2 border border-[#E5E1D8] text-[#2C3E50] hover:border-[#B85C38] hover:text-[#B85C38] transition-colors text-sm"
+                        onClick={() => setSelected({ mode: mode.titre, amount: `${m} ${mode.unite}` })}
+                        className="px-4 py-2 border border-gray-200 text-black text-sm"
                       >
                         {m} {mode.unite}
                       </button>
@@ -77,27 +87,40 @@ export default function NousSoutenirPage() {
                   </div>
                 </div>
                 
-                <button className="w-full px-6 py-4 bg-[#B85C38] text-[#FFFCF8] hover:bg-[#8B4513] transition-colors">
-                  Je contribue →
-                </button>
+                {mode.titre === "Devenir membre" ? (
+                  <Link
+                    href="/devenir-membre"
+                    className="w-full px-6 py-4 bg-black text-white text-center"
+                    onClick={() => setSelected({ mode: mode.titre, amount: "Adhésion" })}
+                  >
+                    Voir l'adhésion →
+                  </Link>
+                ) : (
+                  <a
+                    href="#paiement"
+                    className="w-full px-6 py-4 bg-[#DC2626] text-white text-center"
+                  >
+                    Je contribue →
+                  </a>
+                )}
               </div>
             ))}
           </div>
 
           {/* Info paiement */}
-          <div className="mt-12 p-8 bg-[#F5F3EF] border border-[#E5E1D8]">
-            <p className="text-[#5D6D7E] text-center mb-4">
-              Paiement par Mobile Money (OM, MTN MoMo) ou virement bancaire
+          <div id="paiement" className="mt-12 p-8 bg-white border border-gray-200">
+            <p className="text-gray-700 text-center mb-4">
+              {paymentText}
             </p>
-            <p className="text-sm text-[#8B7355] text-center">
-              Transactions sécurisées • Reçu fiscal disponible
+            <p className="text-sm text-gray-600 text-center">
+              Transactions sécurisées • Reçu fiscal disponible • Contact : inside_development@yahoo.com
             </p>
           </div>
         </div>
       </section>
 
       {/* Devenir membre - CTA */}
-      <section className="py-16 bg-[#2C3E50] text-[#FFFCF8]">
+      <section className="py-16 bg-black text-white">
         <div className="container-acdev text-center">
           <h2 
             className="text-3xl font-bold mb-4"
@@ -105,12 +128,12 @@ export default function NousSoutenirPage() {
           >
             Rejoignez ACDEV
           </h2>
-          <p className="text-[#C9A961] mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Découvrez tous les avantages de l'adhésion et devenez membre dès aujourd'hui.
           </p>
           <Link
             href="/devenir-membre"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#C9A961] text-[#2C3E50] hover:bg-[#B8A050] transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black"
           >
             Voir les options d'adhésion
             <ArrowRight className="h-5 w-5" />
@@ -119,27 +142,27 @@ export default function NousSoutenirPage() {
       </section>
 
       {/* Contact simplifié */}
-      <section className="py-16 border-t border-[#E5E1D8]">
+      <section className="py-16 border-t border-gray-200">
         <div className="container-acdev">
           <div className="max-w-2xl mx-auto text-center">
             <h2 
-              className="text-2xl font-bold text-[#2C3E50] mb-4"
+              className="text-2xl font-bold text-black mb-4"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               Contactez-nous
             </h2>
-            <p className="text-[#5D6D7E] mb-8">
+            <p className="text-gray-700 mb-8">
               Pour toute question sur les dons ou les partenariats
             </p>
             
             <div className="space-y-4">
               <a 
                 href="mailto:inside_development@yahoo.com"
-                className="block text-[#B85C38] hover:underline text-lg"
+                className="block text-[#1E40AF] underline text-lg"
               >
                 inside_development@yahoo.com
               </a>
-              <p className="text-[#5D6D7E]">
+              <p className="text-gray-700">
                 Cameroun — Littoral, Est, Centre
               </p>
             </div>

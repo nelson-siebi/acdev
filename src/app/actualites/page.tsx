@@ -1,6 +1,4 @@
 import { Calendar, ArrowRight, User } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 const actualites = [
@@ -54,40 +52,18 @@ const actualites = [
   }
 ]
 
-const categories = ["Toutes", "Institutionnel", "Programme II", "Programme III", "Partenariat", "Digital"]
-
 export default function ActualitesPage() {
   return (
-    <div className="min-h-screen bg-[var(--background)]">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] py-20 lg:py-28">
+      <section className="bg-white border-b border-gray-200 py-20 lg:py-28">
         <div className="container-acdev text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-montserrat)' }}>
+          <h1 className="text-4xl sm:text-5xl font-bold text-black mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
             Actualités
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Découvrez nos dernières actions, événements et réussites sur le terrain.
           </p>
-        </div>
-      </section>
-
-      {/* Filtres */}
-      <section className="py-8 bg-white border-b border-[var(--border)]">
-        <div className="container-acdev">
-          <div className="flex flex-wrap gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  cat === "Toutes"
-                    ? "bg-[var(--primary)] text-white"
-                    : "bg-[var(--muted)] text-[var(--muted-foreground)] hover:bg-[var(--primary)]/10"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -96,38 +72,43 @@ export default function ActualitesPage() {
         <div className="container-acdev">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {actualites.map((article) => (
-              <Card key={article.id} className="group hover:shadow-lg transition-all flex flex-col">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-2 text-sm text-[var(--muted-foreground)] mb-3">
-                    <Calendar className="h-4 w-4" />
-                    <span>{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-                  </div>
-                  <span className="inline-block px-3 py-1 bg-[var(--primary)]/10 text-[var(--primary)] text-xs font-semibold rounded-full mb-3">
+              <article key={article.id} className="border border-gray-200 bg-white p-6">
+                <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
+                  <Calendar className="h-4 w-4" />
+                  <span>{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                </div>
+
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-xs font-semibold text-[#1E40AF] uppercase tracking-wider">
                     {article.categorie}
                   </span>
-                  <CardTitle className="text-xl group-hover:text-[var(--primary)] transition-colors" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                    {article.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-1 flex flex-col">
-                  <CardDescription className="text-base mb-4 flex-1">
-                    {article.resume}
-                  </CardDescription>
-                  <div className="flex items-center gap-2 text-sm text-[var(--muted-foreground)] pt-4 border-t border-[var(--border)]">
-                    <User className="h-4 w-4" />
-                    <span>Par {article.auteur}</span>
-                  </div>
-                </CardContent>
-              </Card>
+                  <span className="inline-block w-6 h-0.5 bg-[#DC2626]" />
+                </div>
+
+                <h2 className="text-xl font-bold text-black" style={{ fontFamily: 'var(--font-heading)' }}>
+                  {article.title}
+                </h2>
+
+                <p className="text-gray-700 mt-3">
+                  {article.resume}
+                </p>
+
+                <div className="flex items-center gap-2 text-sm text-gray-600 mt-6 pt-4 border-t border-gray-200">
+                  <User className="h-4 w-4" />
+                  <span>Par {article.auteur}</span>
+                </div>
+              </article>
             ))}
           </div>
 
-          {/* Pagination simulée */}
-          <div className="flex justify-center gap-2 mt-12">
-            <Button variant="outline" size="sm" disabled>Précédent</Button>
-            <Button variant="default" size="sm" className="bg-[var(--primary)]">1</Button>
-            <Button variant="outline" size="sm">2</Button>
-            <Button variant="outline" size="sm">Suivant</Button>
+          <div className="text-center mt-14">
+            <p className="text-gray-700 mb-6">
+              Vous souhaitez soutenir une action en particulier ?
+            </p>
+            <Link href="/nous-soutenir" className="inline-flex items-center gap-2 px-8 py-4 bg-[#DC2626] text-white">
+              Faire un don
+              <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
         </div>
       </section>

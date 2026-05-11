@@ -57,17 +57,17 @@ const membresTypes = [
 
 export default function DevenirMembrePage() {
   return (
-    <div className="min-h-screen bg-[#FDFCFA]">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-[#F5F3EF] border-b border-[#E5E1D8] py-16 lg:py-20">
+      <section className="bg-white border-b border-gray-200 py-16 lg:py-20">
         <div className="container-acdev">
           <h1 
-            className="text-4xl lg:text-5xl font-bold text-[#2C3E50] mb-6"
+            className="text-4xl lg:text-5xl font-bold text-black mb-6"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             Devenir membre
           </h1>
-          <p className="text-xl text-[#5D6D7E] max-w-3xl">
+          <p className="text-xl text-gray-700 max-w-3xl">
             Rejoignez ACDEV et contribuez à notre mission de promotion des droits humains 
             et de prévention des violences basées sur le genre au Cameroun.
           </p>
@@ -81,28 +81,28 @@ export default function DevenirMembrePage() {
             {membresTypes.map((membre, index) => (
               <div 
                 key={index} 
-                className="border border-[#E5E1D8] bg-[#FFFCF8] p-8 flex flex-col"
+                className="border border-gray-200 bg-white p-8 flex flex-col"
               >
                 {/* En-tête */}
-                <div className="border-b border-[#E5E1D8] pb-6 mb-6">
+                <div className="border-b border-gray-200 pb-6 mb-6">
                   <h2 
-                    className="text-2xl font-bold text-[#2C3E50] mb-3"
+                    className="text-2xl font-bold text-black mb-3"
                     style={{ fontFamily: 'var(--font-heading)' }}
                   >
                     {membre.type}
                   </h2>
-                  <p className="text-lg text-[#B85C38] font-semibold">
+                  <p className="text-lg text-[#DC2626] font-semibold">
                     {membre.cotisation}
                   </p>
                 </div>
 
                 {/* Qui */}
                 <div className="mb-6">
-                  <h3 className="font-semibold text-[#2C3E50] mb-3">Qui peut adhérer ?</h3>
+                  <h3 className="font-semibold text-black mb-3">Qui peut adhérer ?</h3>
                   <ul className="space-y-2">
                     {membre.qui.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-[#5D6D7E]">
-                        <span className="text-[#B85C38] mt-1">•</span>
+                      <li key={i} className="flex items-start gap-2 text-gray-700">
+                        <span className="text-[#1E40AF] mt-1">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -111,11 +111,11 @@ export default function DevenirMembrePage() {
 
                 {/* Avantages */}
                 <div className="flex-1">
-                  <h3 className="font-semibold text-[#2C3E50] mb-3">Les avantages</h3>
+                  <h3 className="font-semibold text-black mb-3">Les avantages</h3>
                   <ul className="space-y-3">
                     {membre.avantages.map((avantage, i) => (
-                      <li key={i} className="flex items-start gap-2 text-[#5D6D7E]">
-                        <Check className="h-5 w-5 text-[#C9A961] shrink-0 mt-0.5" />
+                      <li key={i} className="flex items-start gap-2 text-gray-700">
+                        <Check className="h-5 w-5 text-[#16A34A] shrink-0 mt-0.5" />
                         <span className="text-sm">{avantage}</span>
                       </li>
                     ))}
@@ -123,10 +123,10 @@ export default function DevenirMembrePage() {
                 </div>
 
                 {/* CTA */}
-                <div className="mt-8 pt-6 border-t border-[#E5E1D8]">
+                <div className="mt-8 pt-6 border-t border-gray-200">
                   <Link
                     href="/nous-soutenir"
-                    className="block w-full text-center px-6 py-4 bg-[#B85C38] text-[#FFFCF8] hover:bg-[#8B4513] transition-colors"
+                    className="block w-full text-center px-6 py-4 bg-[#DC2626] text-white"
                   >
                     Adhérer maintenant
                   </Link>
@@ -138,10 +138,10 @@ export default function DevenirMembrePage() {
       </section>
 
       {/* Processus */}
-      <section className="py-16 bg-[#F5F3EF] border-y border-[#E5E1D8]">
+      <section className="py-16 bg-white border-y border-gray-200">
         <div className="container-acdev">
           <h2 
-            className="text-3xl font-bold text-[#2C3E50] mb-12 text-center"
+            className="text-3xl font-bold text-black mb-12 text-center"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             Comment devenir membre ?
@@ -171,11 +171,11 @@ export default function DevenirMembrePage() {
               }
             ].map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-12 h-12 mx-auto mb-4 bg-[#B85C38] text-[#FFFCF8] flex items-center justify-center text-xl font-bold">
+                <div className="w-12 h-12 mx-auto mb-4 bg-black text-white flex items-center justify-center text-xl font-bold">
                   {step.etape}
                 </div>
-                <h3 className="font-semibold text-[#2C3E50] mb-2">{step.titre}</h3>
-                <p className="text-sm text-[#5D6D7E]">{step.desc}</p>
+                <h3 className="font-semibold text-black mb-2">{step.titre}</h3>
+                <p className="text-sm text-gray-700">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -186,17 +186,17 @@ export default function DevenirMembrePage() {
       <section className="py-16">
         <div className="container-acdev text-center">
           <h2 
-            className="text-2xl font-bold text-[#2C3E50] mb-4"
+            className="text-2xl font-bold text-black mb-4"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             Des questions ?
           </h2>
-          <p className="text-[#5D6D7E] mb-6">
+          <p className="text-gray-700 mb-6">
             Contactez-nous pour plus d'informations sur l'adhésion
           </p>
           <a 
             href="mailto:inside_development@yahoo.com"
-            className="text-[#B85C38] hover:underline"
+            className="text-[#1E40AF] underline"
           >
             inside_development@yahoo.com
           </a>

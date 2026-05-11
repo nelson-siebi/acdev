@@ -1,5 +1,4 @@
 import { Heart, Users, Target, Award } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const partenaires = [
   "IOM", "OIT (ILO)", "Coopération Suisse", "AGEH", "Amplify Change", 
@@ -15,14 +14,14 @@ const equipe = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[var(--background)]">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] py-20 lg:py-28">
+      <section className="bg-white border-b border-gray-200 py-20 lg:py-28">
         <div className="container-acdev text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-montserrat)' }}>
+          <h1 className="text-4xl sm:text-5xl font-bold text-black mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
             À propos d'ACDEV
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Association au Cœur du Développement - Engagée pour la promotion d'un développement 
             social inclusif, équitable et durable au Cameroun depuis 2012.
           </p>
@@ -33,76 +32,66 @@ export default function AboutPage() {
       <section className="py-16 lg:py-24 bg-white">
         <div className="container-acdev">
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardHeader>
-                <div className="mx-auto w-14 h-14 rounded-full bg-[var(--primary)]/10 flex items-center justify-center mb-4">
-                  <Target className="h-7 w-7 text-[var(--primary)]" />
-                </div>
-                <CardTitle style={{ fontFamily: 'var(--font-montserrat)' }}>Notre Vision</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-[var(--muted-foreground)]">
-                  Contribuer à rendre le monde meilleur pour les femmes, les enfants et toutes les personnes vulnérables.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="text-center border border-gray-200 p-8 bg-white">
+              <div className="mx-auto w-14 h-14 bg-[#1E40AF] flex items-center justify-center mb-4 text-white">
+                <Target className="h-7 w-7" />
+              </div>
+              <h2 className="text-xl font-bold text-black mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
+                Notre Vision
+              </h2>
+              <p className="text-gray-700">
+                Contribuer à rendre le monde meilleur pour les femmes, les enfants et toutes les personnes vulnérables.
+              </p>
+            </div>
 
-            <Card className="text-center">
-              <CardHeader>
-                <div className="mx-auto w-14 h-14 rounded-full bg-[var(--secondary)]/10 flex items-center justify-center mb-4">
-                  <Heart className="h-7 w-7 text-[var(--secondary)]" />
-                </div>
-                <CardTitle style={{ fontFamily: 'var(--font-montserrat)' }}>Notre Mission</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-[var(--muted-foreground)]">
-                  Promotion des droits humains, prévention des violences basées sur le genre, 
-                  autonomisation des femmes et enfants.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="text-center border border-gray-200 p-8 bg-white">
+              <div className="mx-auto w-14 h-14 bg-[#DC2626] flex items-center justify-center mb-4 text-white">
+                <Heart className="h-7 w-7" />
+              </div>
+              <h2 className="text-xl font-bold text-black mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
+                Notre Mission
+              </h2>
+              <p className="text-gray-700">
+                Promotion des droits humains, prévention des violences basées sur le genre, 
+                autonomisation des femmes et enfants.
+              </p>
+            </div>
 
-            <Card className="text-center">
-              <CardHeader>
-                <div className="mx-auto w-14 h-14 rounded-full bg-[var(--accent)]/10 flex items-center justify-center mb-4">
-                  <Award className="h-7 w-7 text-[var(--accent)]" />
-                </div>
-                <CardTitle style={{ fontFamily: 'var(--font-montserrat)' }}>Nos Valeurs</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {["Amour", "Respect", "Solidarité"].map((v) => (
-                    <span key={v} className="px-3 py-1 bg-[var(--muted)] rounded-full text-sm text-[var(--foreground)]">
-                      {v}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <div className="text-center border border-gray-200 p-8 bg-white">
+              <div className="mx-auto w-14 h-14 bg-[#16A34A] flex items-center justify-center mb-4 text-white">
+                <Award className="h-7 w-7" />
+              </div>
+              <h2 className="text-xl font-bold text-black mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
+                Nos Valeurs
+              </h2>
+              <div className="flex flex-wrap justify-center gap-2">
+                {["Amour", "Respect", "Solidarité"].map((v) => (
+                  <span key={v} className="px-3 py-1 border border-gray-200 text-sm text-black">
+                    {v}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Équipe */}
-      <section className="py-16 lg:py-24 bg-[var(--muted)]">
+      <section className="py-16 lg:py-24 bg-white border-t border-gray-200">
         <div className="container-acdev">
-          <h2 className="text-3xl font-bold text-center mb-12" style={{ fontFamily: 'var(--font-montserrat)' }}>
+          <h2 className="text-3xl font-bold text-center mb-12" style={{ fontFamily: 'var(--font-heading)' }}>
             Notre équipe
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {equipe.map((membre, idx) => (
-              <Card key={idx} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-[var(--primary)]/10 flex items-center justify-center mb-4">
-                    <Users className="h-8 w-8 text-[var(--primary)]" />
-                  </div>
-                  <CardTitle className="text-lg">{membre.nom}</CardTitle>
-                  <p className="text-sm text-[var(--primary)] font-medium">{membre.role}</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-[var(--muted-foreground)]">{membre.desc}</p>
-                </CardContent>
-              </Card>
+              <div key={idx} className="border border-gray-200 bg-white p-6">
+                <div className="w-12 h-12 bg-black flex items-center justify-center mb-4 text-white">
+                  <Users className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-bold text-black">{membre.nom}</h3>
+                <p className="text-sm text-[#1E40AF] font-semibold mt-1">{membre.role}</p>
+                <p className="text-sm text-gray-700 mt-3">{membre.desc}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -111,7 +100,7 @@ export default function AboutPage() {
       {/* Partenaires */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="container-acdev">
-          <h2 className="text-3xl font-bold text-center mb-4" style={{ fontFamily: 'var(--font-montserrat)' }}>
+          <h2 className="text-3xl font-bold text-center mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
             Nos partenaires
           </h2>
           <p className="text-center text-[var(--muted-foreground)] mb-12 max-w-2xl mx-auto">
@@ -121,7 +110,7 @@ export default function AboutPage() {
             {partenaires.map((partenaire) => (
               <div
                 key={partenaire}
-                className="px-6 py-3 bg-[var(--muted)] rounded-lg text-[var(--foreground)] font-medium hover:bg-[var(--primary)]/10 transition-colors"
+                className="px-6 py-3 border border-gray-200 text-black font-medium"
               >
                 {partenaire}
               </div>
