@@ -1,5 +1,5 @@
-import { Users, Scale, Briefcase, Smartphone, ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { Users, Scale, Briefcase, Smartphone, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const programmes = [
   {
@@ -7,82 +7,82 @@ const programmes = [
     numero: "I",
     icon: Users,
     title: "Renforcement institutionnel",
-    objective: "Renforcer le cadre institutionnel et améliorer les connaissances de l'équipe",
-    budget: "500 000 FCFA/an",
+    objective:
+      "Renforcer le cadre institutionnel et améliorer les connaissances de l’équipe",
     periode: "2026-2028",
     activites: [
       "Formation en genre et droits humains des femmes",
-      "Formation traite et trafic",
+      "Formation sur la traite, le trafic et la protection des personnes vulnérables",
       "NTIC et gestion de projets",
-      "Gestion et suivi des projets"
+      "Gestion, suivi et évaluation des projets",
     ],
     indicateurs: [
       "80% des membres formés en genre et DHF",
-      "80% des membres formés aux techniques de gestion"
+      "80% des membres formés aux techniques de gestion",
     ],
-    color: "#1E40AF"
+    color: "#1E40AF",
   },
   {
     id: 2,
     numero: "II",
     icon: Scale,
     title: "Droits de l'Homme, femmes & enfants",
-    objective: "Favoriser l'accessibilité à l'information et protéger les couches vulnérables",
-    budget: "1 000 000+ FCFA/an",
+    objective:
+      "Favoriser l’accessibilité à l’information et protéger les femmes, les jeunes et les enfants vulnérables",
     periode: "2026-2028",
     activites: [
-      "Éducation aux droits de la femme et de l'enfant",
-      "Sensibilisation violences sexuelles et VBG",
-      "Pique-nique éducatif santé reproductive",
-      "Hygiène menstruelle"
+      "Lancement des sensibilisations sur les violences sur mineures",
+      "Prévention des enlèvements et de la traite des enfants",
+      "Soutien aux initiatives en faveur de la protection des femmes vulnérables",
+      "Plaidoyer pour le changement et l’amélioration des conditions de vie des femmes et des jeunes",
     ],
     indicateurs: [
       "2000+ jeunes sensibilisés/an",
-      "60% de jeunes filles édifiées sur leurs droits"
+      "60% de jeunes filles édifiées sur leurs droits",
     ],
-    color: "#DC2626"
+    color: "#DC2626",
   },
   {
     id: 3,
     numero: "III",
     icon: Briefcase,
     title: "Autonomisation économique",
-    objective: "Améliorer les conditions financières des femmes et jeunes filles démunies",
-    budget: "3 500 000 FCFA/an",
+    objective:
+      "Améliorer les conditions de vie des femmes, jeunes filles mères célibataires et jeunes vulnérables",
     periode: "2026-2028",
     activites: [
-      "Appui technique aux AGR",
-      "Appui financier aux jeunes filles mères",
-      "Insertion socioéconomique",
-      "Lutte contre la pauvreté"
+      "Appui au développement des AGR",
+      "Soutien aux jeunes filles mères célibataires",
+      "Ateliers de formation et coaching des jeunes en développement de business",
+      "Orientation professionnelle et insertion socioéconomique",
     ],
     indicateurs: [
       "50% de jeunes filles mères bénéficiaires",
-      "Accroissement de l'indépendance financière"
+      "Accroissement de l'indépendance financière",
     ],
-    color: "#16A34A"
+    color: "#16A34A",
   },
   {
     id: 6,
     numero: "VI",
     icon: Smartphone,
     title: "Digital & Cohésion sociale",
-    objective: "Renforcer la connaissance des jeunes sur les nouveaux médias sociaux",
-    budget: "Variable",
+    objective:
+      "Renforcer les capacités des jeunes et promouvoir la cohésion sociale à travers le digital et l’accompagnement",
     periode: "2026-2028",
     activites: [
-      "Sensibilisation usage médias sociaux",
-      "Communication pour la paix",
-      "Ateliers formation jeunes",
-      "Accompagnement digital"
+      "Ateliers de formation et coaching des jeunes",
+      "Développement de business et orientation professionnelle",
+      "Sensibilisation à l’usage responsable des médias sociaux",
+      "Communication pour la paix et cohésion sociale",
     ],
     indicateurs: [
       "Jeunes sensibilisés aux risques",
-      "Promotion de la communication interculturelle"
+      "Promotion de la communication interculturelle",
     ],
-    color: "#1E40AF"
-  }
-]
+    color: "#1E40AF",
+  },
+];
 
 export default function ProgrammesPage() {
   return (
@@ -90,12 +90,15 @@ export default function ProgrammesPage() {
       {/* Hero */}
       <section className="bg-white border-b border-gray-200 py-20 lg:py-28">
         <div className="container-acdev text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-black mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
-            Nos programmes d'intervention
+          <h1
+            className="text-4xl sm:text-5xl font-bold text-black mb-6"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Nos programmes d’intervention
           </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Plan d'action triennal 2026-2028 : quatre axes stratégiques pour transformer 
-            la vie des femmes et des enfants au Cameroun.
+            Plan d’action triennal 2026-2028 : quatre axes stratégiques pour
+            transformer la vie des femmes et des enfants au Cameroun.
           </p>
         </div>
       </section>
@@ -104,24 +107,41 @@ export default function ProgrammesPage() {
       <section className="py-16 lg:py-24">
         <div className="container-acdev">
           <div className="space-y-10">
-            {programmes.map((programme, idx) => (
-              <div key={programme.id} className="border border-gray-200 bg-white">
+            {programmes.map((programme) => (
+              <div
+                key={programme.id}
+                className="border border-gray-200 bg-white"
+              >
                 <div className="p-8 lg:p-12 border-b border-gray-200">
                   <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 flex items-center justify-center text-white" style={{ backgroundColor: programme.color }}>
+                    <div
+                      className="w-12 h-12 flex items-center justify-center text-white"
+                      style={{ backgroundColor: programme.color }}
+                    >
                       <programme.icon className="h-6 w-6" />
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-baseline gap-3">
-                        <span className="text-sm font-semibold" style={{ color: programme.color }}>
+                        <span
+                          className="text-sm font-semibold"
+                          style={{ color: programme.color }}
+                        >
                           Programme {programme.numero}
                         </span>
-                        <span className="inline-block w-6 h-0.5" style={{ backgroundColor: programme.color }} />
+                        <span
+                          className="inline-block w-6 h-0.5"
+                          style={{ backgroundColor: programme.color }}
+                        />
                       </div>
-                      <h2 className="text-2xl lg:text-3xl font-bold text-black mt-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                      <h2
+                        className="text-2xl lg:text-3xl font-bold text-black mt-2"
+                        style={{ fontFamily: "var(--font-heading)" }}
+                      >
                         {programme.title}
                       </h2>
-                      <p className="text-gray-700 mt-3">{programme.objective}</p>
+                      <p className="text-gray-700 mt-3">
+                        {programme.objective}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -129,28 +149,44 @@ export default function ProgrammesPage() {
                 <div className="p-8 lg:p-12">
                   <div className="grid md:grid-cols-2 gap-10">
                     <div>
-                      <p className="text-sm font-semibold text-black">Budget</p>
-                      <p className="text-gray-700 mt-1">{programme.budget}</p>
-                      <p className="text-sm font-semibold text-black mt-6">Période</p>
+                      <p className="text-sm font-semibold text-black">
+                        Période
+                      </p>
                       <p className="text-gray-700 mt-1">{programme.periode}</p>
                     </div>
 
                     <div>
-                      <h3 className="font-semibold text-black mb-3">Activités principales</h3>
+                      <h3 className="font-semibold text-black mb-3">
+                        Activités principales
+                      </h3>
                       <ul className="space-y-2">
                         {programme.activites.map((activite, i) => (
-                          <li key={i} className="flex items-start gap-3 text-gray-700">
-                            <span className="mt-2 w-2 h-0.5" style={{ backgroundColor: programme.color }} />
+                          <li
+                            key={i}
+                            className="flex items-start gap-3 text-gray-700"
+                          >
+                            <span
+                              className="mt-2 w-2 h-0.5"
+                              style={{ backgroundColor: programme.color }}
+                            />
                             <span>{activite}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <h3 className="font-semibold text-black mb-3 mt-8">Indicateurs de suivi</h3>
+                      <h3 className="font-semibold text-black mb-3 mt-8">
+                        Indicateurs de suivi
+                      </h3>
                       <ul className="space-y-2">
                         {programme.indicateurs.map((indicateur, i) => (
-                          <li key={i} className="flex items-start gap-3 text-gray-700">
-                            <span className="mt-2 w-2 h-2" style={{ backgroundColor: programme.color }} />
+                          <li
+                            key={i}
+                            className="flex items-start gap-3 text-gray-700"
+                          >
+                            <span
+                              className="mt-2 w-2 h-2"
+                              style={{ backgroundColor: programme.color }}
+                            />
                             <span>{indicateur}</span>
                           </li>
                         ))}
@@ -165,9 +201,13 @@ export default function ProgrammesPage() {
           {/* CTA */}
           <div className="text-center mt-16">
             <p className="text-lg text-gray-700 mb-6">
-              Soutenez nos actions pour transformer la vie des femmes et des enfants au Cameroun.
+              Soutenez nos actions pour transformer la vie des femmes et des
+              enfants au Cameroun.
             </p>
-            <Link href="/nous-soutenir" className="inline-flex items-center gap-2 px-8 py-4 bg-[#DC2626] text-white">
+            <Link
+              href="/nous-soutenir"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#DC2626] text-white"
+            >
               Soutenir nos programmes
               <ArrowRight className="h-5 w-5" />
             </Link>
@@ -175,5 +215,5 @@ export default function ProgrammesPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

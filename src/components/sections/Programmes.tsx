@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { ArrowRight, Users, Scale, Briefcase, Smartphone } from "lucide-react"
-import Link from "next/link"
+import { ArrowRight, Users, Scale, Briefcase, Smartphone } from "lucide-react";
+import Link from "next/link";
 
 const programmes = [
   {
@@ -9,7 +9,8 @@ const programmes = [
     icon: Users,
     title: "Renforcement institutionnel",
     subtitle: "Programme I",
-    description: "Formation des membres en genre, droits humains des femmes, traite et trafic. NTIC et gestion de projets.",
+    description:
+      "Formation des membres en genre, droits humains, traite, trafic, NTIC, gestion et suivi de projets.",
     color: "#1E40AF",
   },
   {
@@ -17,7 +18,8 @@ const programmes = [
     icon: Scale,
     title: "Droits de l'Homme & VBG",
     subtitle: "Programme II",
-    description: "Éducation aux droits, sensibilisation aux violences sexuelles, hygiène menstruelle, santé reproductive.",
+    description:
+      "Sensibilisation sur les violences sur mineures, les enlèvements, la traite des enfants et la protection des femmes vulnérables.",
     color: "#DC2626",
   },
   {
@@ -25,7 +27,8 @@ const programmes = [
     icon: Briefcase,
     title: "Autonomisation économique",
     subtitle: "Programme III",
-    description: "Appui technique et financier pour le développement des activités génératrices de revenus (AGR).",
+    description:
+      "Appui au développement des AGR et soutien aux jeunes filles mères célibataires pour favoriser leur autonomie.",
     color: "#16A34A",
   },
   {
@@ -33,10 +36,11 @@ const programmes = [
     icon: Smartphone,
     title: "Digital & Cohésion sociale",
     subtitle: "Programme VI",
-    description: "Sensibilisation sur l'usage des médias sociaux, communication pour la paix, ateliers de formation.",
+    description:
+      "Ateliers de formation, coaching des jeunes en développement de business et orientation professionnelle.",
     color: "#1E40AF",
-  }
-]
+  },
+];
 
 export function Programmes() {
   return (
@@ -47,15 +51,16 @@ export function Programmes() {
             <span className="text-[#DC2626] font-semibold text-sm uppercase tracking-wider">
               Nos actions
             </span>
-            <h2 
+            <h2
               className="text-4xl font-bold text-black mt-2"
-              style={{ fontFamily: 'var(--font-heading)' }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Programmes 2026-2028
             </h2>
           </div>
           <p className="text-gray-600 max-w-lg mt-4 lg:mt-0">
-            Quatre axes stratégiques pour transformer la vie des femmes et des enfants
+            Quatre axes stratégiques pour transformer la vie des femmes et des
+            enfants
           </p>
         </div>
 
@@ -66,23 +71,33 @@ export function Programmes() {
               className="p-8 lg:p-10 bg-white border-b border-gray-200 md:border-r md:border-gray-200 last:border-b-0"
             >
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 flex items-center justify-center text-white" style={{ backgroundColor: programme.color }}>
+                <div
+                  className="w-10 h-10 flex items-center justify-center text-white"
+                  style={{ backgroundColor: programme.color }}
+                >
                   <programme.icon className="h-5 w-5" />
                 </div>
 
                 <div className="min-w-0">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-sm font-semibold" style={{ color: programme.color }}>
+                    <span
+                      className="text-sm font-semibold"
+                      style={{ color: programme.color }}
+                    >
                       {programme.subtitle}
                     </span>
-                    <span className="inline-block w-6 h-0.5" style={{ backgroundColor: programme.color }} />
+                    <span
+                      className="inline-block w-6 h-0.5"
+                      style={{ backgroundColor: programme.color }}
+                    />
                   </div>
-                  <h3 className="text-lg lg:text-xl font-bold text-black" style={{ fontFamily: 'var(--font-heading)' }}>
+                  <h3
+                    className="text-lg lg:text-xl font-bold text-black"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
                     {programme.title}
                   </h3>
-                  <p className="mt-3 text-gray-600">
-                    {programme.description}
-                  </p>
+                  <p className="mt-3 text-gray-600">{programme.description}</p>
                 </div>
               </div>
             </div>
@@ -90,7 +105,7 @@ export function Programmes() {
         </div>
 
         <div className="text-center mt-12">
-          <Link 
+          <Link
             href="/programmes"
             className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white"
           >
@@ -100,5 +115,5 @@ export function Programmes() {
         </div>
       </div>
     </section>
-  )
+  );
 }
