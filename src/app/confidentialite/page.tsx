@@ -1,25 +1,26 @@
+import { PageHero } from "@/components/common/PageHero";
+
 export default function ConfidentialitePage() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="py-16 border-b border-gray-200">
-        <div className="container-acdev">
-          <h1 className="text-4xl font-bold text-black" style={{ fontFamily: "var(--font-heading)" }}>
-            Politique de confidentialité
-          </h1>
-          <p className="text-gray-700 mt-4 max-w-3xl">
-            Cette page est en cours de rédaction. Nous mettons progressivement en place nos règles de confidentialité.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="Protection des données"
+        title="Politique de confidentialité"
+        description="Découvrez comment ACDEV s’engage à respecter la confidentialité des informations et la protection des données des visiteurs."
+        image="/kevin-bonilla-GE5T26wd3QM-unsplash.jpg"
+        accentColor="#16A34A"
+      />
 
       <section className="py-12">
         <div className="container-acdev">
           <div className="border border-gray-200 p-8">
             <h2 className="text-lg font-semibold text-black">Contact</h2>
-            <p className="text-gray-700 mt-2">Email : inside_development@yahoo.com</p>
+            <p className="text-gray-700 mt-2">
+              Email : inside_development@yahoo.com
+            </p>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }

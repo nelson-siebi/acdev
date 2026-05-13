@@ -1,3 +1,4 @@
+import { PageHero } from "@/components/common/PageHero";
 import { Users, Scale, Briefcase, Smartphone, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -87,21 +88,13 @@ const programmes = [
 export default function ProgrammesPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-white border-b border-gray-200 py-20 lg:py-28">
-        <div className="container-acdev text-center">
-          <h1
-            className="text-4xl sm:text-5xl font-bold text-black mb-6"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Nos programmes d’intervention
-          </h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Plan d’action triennal 2026-2028 : quatre axes stratégiques pour
-            transformer la vie des femmes et des enfants au Cameroun.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="Plan d’action 2026-2028"
+        title="Nos programmes d’intervention"
+        description="Quatre axes stratégiques pour transformer la vie des femmes, des jeunes filles mères célibataires, des enfants et des communautés vulnérables au Cameroun."
+        image="/kevin-bonilla-GE5T26wd3QM-unsplash.jpg"
+        accentColor="#DC2626"
+      />
 
       {/* Programmes */}
       <section className="py-16 lg:py-24">

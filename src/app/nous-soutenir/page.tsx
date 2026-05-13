@@ -1,3 +1,4 @@
+import { PageHero } from "@/components/common/PageHero";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -45,22 +46,13 @@ const formesSoutien = [
 export default function NousSoutenirPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-white border-b border-gray-200 py-16 lg:py-20">
-        <div className="container-acdev">
-          <h1
-            className="text-4xl lg:text-5xl font-bold text-black mb-6"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Soutenez nos actions
-          </h1>
-          <p className="text-xl text-gray-700 max-w-3xl">
-            Votre contribution aide ACDEV à accompagner les femmes, les jeunes
-            filles mères célibataires, les enfants et les communautés
-            vulnérables au Cameroun.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="S’engager avec ACDEV"
+        title="Soutenez nos actions"
+        description="Votre contribution aide ACDEV à accompagner les femmes, les jeunes filles mères célibataires, les enfants et les communautés vulnérables au Cameroun."
+        image="/kevin-bonilla-GE5T26wd3QM-unsplash.jpg"
+        accentColor="#DC2626"
+      />
 
       {/* Actions à soutenir */}
       <section className="py-16 lg:py-24">
